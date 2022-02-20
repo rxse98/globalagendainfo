@@ -7,6 +7,7 @@ var status
   
   // server.get('/', (req, res) => {
   const server = express()
+    .use(express.static('public'))
     .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
