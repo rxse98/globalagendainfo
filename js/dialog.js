@@ -1,3 +1,8 @@
+function clickInfo() {
+    let text = document.getElementById("text")
+    text.innerText = "\"More info: discord.me/GA1, Agent.\""
+}
+
 function clickRefresh() {
     var HOST = location.origin.replace(/^http/, 'ws')
     var ws = new WebSocket(HOST);
@@ -5,10 +10,6 @@ function clickRefresh() {
     ws.onmessage = (event) => {
         let text = document.getElementById("text")
         text.innerText = event.data
-    }
-    
-    ws.onclose = () => {
-        console.log("onclose")
     }
 }
 
