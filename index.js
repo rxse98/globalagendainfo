@@ -45,7 +45,6 @@ function serverWS() {
   const WebSocket = require('ws');
   const wsServer = new WebSocket.Server(
     {
-      server,
       port: process.env.PORT
   });
   
