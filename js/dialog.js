@@ -3,6 +3,7 @@ function clickInfo() {
     text.innerText = "\"Want to know more info? Join us: "
     
     let link = document.createElement("a")
+    link.classList.add("link")
     link.innerText = "*LINK*"
     link.href = "https://discord.me/GA1"
     text.appendChild(link)
