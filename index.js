@@ -1,9 +1,8 @@
+var status
 const express = require('express')
 
 const app = express()
 const port = 3000
-
-var status
 
 function start() {
 
@@ -39,13 +38,15 @@ function clientTCP() {
       } else {
           status = "\"Refreshed, the official server is offline, Agent.\""
       }
-  
   });
 }
 
 function serverWS() {
   const WebSocket = require('ws');
-  const wsServer = new WebSocket.Server({ app });
+  const wsServer = new WebSocket.Server(
+    {
+      app
+  });
   
   wsServer.on('connection', onConnect);
 }
