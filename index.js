@@ -1,11 +1,12 @@
-const app
+const express = require('express')
+
+const app = express()
+const port = 3000
+
 var status
 
 function start() {
-  const express = require('express')
 
-  app = express()
-  const port = 3000
   
   app.get('/', (req, res) => {
       app.use(express.static(__dirname));
