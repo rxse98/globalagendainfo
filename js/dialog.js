@@ -1,6 +1,6 @@
 function clickRefresh() {
     // var ws = new WebSocket("wss://192.168.0.103:9000")
-    var HOST = location.origin.replace(/^http/, 'wss')
+    var HOST = location.origin.replace(/^http/, 'ws')
     var ws = new WebSocket(HOST);
 
     ws.onmessage = (event) => {
