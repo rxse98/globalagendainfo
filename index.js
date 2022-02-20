@@ -1,19 +1,15 @@
 var status
 const express = require('express')
 
-const port = 3000
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
 
 // function start() {
 
 const server = express()
-  .get('/', (req, res) => {
-    server.use(express.static(__dirname));
-    res.sendFile(__dirname  +'/index.html');
-  })
+    .use(express.static(__dirname), (req, res) => res.sendFile(INDEX, { root: __dirname }))
+    .listen(PORT, () => console.log(`Listening on ${PORT}`))
   
-  .listen(process.env.PORT || port, () => {
-    console.log(`Listening at https://globalagendainfo.herokuapp.com:${port}`)
-  })
 // }
 
 // function clientTCP() {
