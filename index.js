@@ -55,6 +55,7 @@ function onConnect(wsClient) {
   wsClient.send(status);
 }
 
+start()
+
 clientTCP()
 serverWS()
-start()
