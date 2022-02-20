@@ -7,7 +7,7 @@ function clickInfo() {
     link.href = "https://discord.me/GA1"
     text.appendChild(link)
 
-    let text2 = document.createElement("p")
+    let text2 = document.createElement("label")
     text2.innerText = " , Agent.\""
     text.appendChild(text2)
 }
