@@ -1,5 +1,5 @@
 function clickRefresh() {
-    var ws = new WebSocket("wss://" + process.env.IP + ":" + process.env.PORT)
+    var ws = new WebSocket("wss://" + process.env.IP + ":" + 9000)
 
     ws.onmessage = (event) => {
         let text = document.getElementById("text")

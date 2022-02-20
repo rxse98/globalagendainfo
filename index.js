@@ -49,7 +49,7 @@ function serverWS() {
   const WebSocket = require('ws');
   const wsServer = new WebSocket.Server(
     {
-      port: process.env.PORT,
+      port: 9000,
       verifyClient(info) {
         console.log(info.req.connection.remoteAddress);
         return true;
