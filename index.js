@@ -1,19 +1,16 @@
+const app
 var status
 
 function start() {
   const express = require('express')
 
-  const app = express()
+  app = express()
   const port = 3000
   
   app.get('/', (req, res) => {
       app.use(express.static(__dirname));
       res.sendFile(__dirname  +'/index.html');
   })
-
-  app.post('/', (req, res) => {
-    res.send(`test`);
-  });
   
   app.listen(process.env.PORT || port, () => {
     console.log(`Listening at https://globalagendainfo.herokuapp.com:${port}`)
@@ -47,14 +44,7 @@ function clientTCP() {
 
 function serverWS() {
   const WebSocket = require('ws');
-  const wsServer = new WebSocket.Server(
-    {
-      port: 9000,
-      verifyClient(info) {
-        console.log(info.req.connection.remoteAddress);
-        return true;
-      },
-  });
+  const wsServer = new WebSocket.Server({ app });
   
   wsServer.on('connection', onConnect);
 }
