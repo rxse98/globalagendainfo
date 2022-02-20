@@ -15,8 +15,8 @@ function start() {
     res.send(`test`);
   });
   
-  app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`)
+  app.listen(process.env.PORT || port, () => {
+    console.log(`Listening at https://globalagendainfo.herokuapp.com:${port}`)
   })
 }
 
