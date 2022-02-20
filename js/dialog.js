@@ -1,5 +1,7 @@
 function clickRefresh() {
-    var ws = new WebSocket("wss://" + process.env.IP + ":" + 9000)
+    // var ws = new WebSocket("wss://192.168.0.103:9000")
+    var HOST = location.origin.replace(/^http/, 'wss')
+    var ws = new WebSocket(HOST);
 
     ws.onmessage = (event) => {
         let text = document.getElementById("text")
