@@ -1,6 +1,11 @@
 function clickInfo() {
     let text = document.getElementById("text")
-    text.innerText = "\"More info: discord.me/GA1, Agent.\""
+    text.innerText = "\"More info: "
+    
+    let link = document.createElement('a')
+    link.innerText = "*LINK* \""
+    link.href = "https://discord.me/GA1"
+    text.appendChild(link)
 }
 
 function clickRefresh() {
