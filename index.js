@@ -1,23 +1,26 @@
 var status
-const express = require('express')
 
-const server = express()
-const port = 3000
-
-function start() {
-
+// function start() {
+  const express = require('express');
+  const PORT = process.env.PORT || 3000;
+  const INDEX = '/index.html'
   
-  server.get('/', (req, res) => {
-    server.use(express.static(__dirname));
-      res.sendFile(__dirname  +'/index.html');
-  })
-  
-  server.listen(process.env.PORT || port, () => {
-    console.log(`Listening at https://globalagendainfo.herokuapp.com:${port}`)
-  })
-}
+  // server.get('/', (req, res) => {
+  const server = express()
+    .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+    .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-function clientTCP() {
+
+    // .use(express.static(__dirname));
+    //   res.sendFile(__dirname  +'/index.html');
+  // })
+  
+  // .listen(process.env.PORT || port, () => {
+  //   console.log(`Listening at https://globalagendainfo.herokuapp.com:${port}`)
+  // })
+// }
+
+// function clientTCP() {
   const net = require('net');
 
   const client = new net.Socket();
@@ -39,9 +42,9 @@ function clientTCP() {
           status = "\"Refreshed, the official server is offline, Agent.\""
       }
   });
-}
+// }
 
-function serverWS() {
+// function serverWS() {
   const WebSocket = require('ws');
   const wsServer = new WebSocket.Server(
     {
@@ -49,13 +52,13 @@ function serverWS() {
   });
   
   wsServer.on('connection', onConnect);
-}
+// }
 
 function onConnect(wsClient) {
   wsClient.send(status);
 }
 
-start()
+// start()
 
-clientTCP()
-serverWS()
+// clientTCP()
+// serverWS()
