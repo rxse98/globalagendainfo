@@ -50,7 +50,7 @@
     display: flex;
 }
 
-.dialog-variant-img {
+.dialog-variant-btn {
     font-family: Agenda-Bold;
     font-size: 1.1rem;
     color: #dcdcdd;
@@ -61,6 +61,10 @@
     height: 2rem;
     border-width: 0;
     padding: 0 2.5rem;
+}
+
+.dialog-variant-btn:focus-visible {
+    outline: 0;
 }
 
 .link {
