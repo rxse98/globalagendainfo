@@ -1,13 +1,25 @@
+function clickInfo() {
+    let text = document.getElementById("text")
+    text.innerText = "\"Want to know more info? Join us: "
+    
+    let link = document.createElement("a")
+    link.classList.add("link")
+    link.innerText = "*LINK*"
+    link.href = "https://discord.me/GA1"
+    text.appendChild(link)
+
+    let text2 = document.createElement("label")
+    text2.innerText = " , Agent.\""
+    text.appendChild(text2)
+}
+
 function clickRefresh() {
-    var ws = new WebSocket("wss://192.168.0.103:9000")
+    var HOST = location.origin.replace(/^http/, 'ws')
+    var ws = new WebSocket(HOST);
 
     ws.onmessage = (event) => {
         let text = document.getElementById("text")
         text.innerText = event.data
-    }
-    
-    ws.onclose = () => {
-        console.log("onclose")
     }
 }
 
