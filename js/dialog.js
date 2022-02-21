@@ -18,6 +18,7 @@ function clickRefresh() {
     var ws = new WebSocket(HOST);
 
     ws.onmessage = (event) => {
+        console.log("Websocket client received data.")
         let text = document.getElementById("text")
         text.innerText = event.data
     }
