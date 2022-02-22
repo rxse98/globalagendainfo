@@ -13,9 +13,14 @@ function clickInfo() {
     text.appendChild(text2)
 }
 
-function clickRefresh() {
+function clickOfficialRefresh() {
     var HOST = location.origin.replace(/^http/, 'ws')
     var ws = new WebSocket(HOST);
+
+    ws.onopen = () => {
+        console.log("Websocket client connected, sending request.")
+        ws.send("official")
+    }
 
     ws.onmessage = (event) => {
         console.log("Websocket client received data.")
