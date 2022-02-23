@@ -69,10 +69,11 @@ function clientOfficialTCP() {
       client.write(request)
     });
 
-    // tcp client receives response from GA server and sends it to ws server
+    // tcp client receives response from GA server
     client.on('data', function(response) {
       console.log('TCP client received response.');
 
+      // tcp client checks response of GA server and sends it to ws server
       if (Buffer.from(response).includes(required)) {
         resolve("\"Refreshed, the official server is online, Agent.\"")
       } else {
